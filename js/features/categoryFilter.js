@@ -1,115 +1,50 @@
-import { getTopNews }
-from "../api/newsApi.js";
-
-import { renderNews }
-from "../ui/renderNews.js";
-
-import {
-    showSpinner,
-    hideSpinner
-}
-from "../ui/spinner.js";
-
-import {
-    showError,
-    hideError
-}
-from "../ui/errorHandler.js";
-
-import {
-    paginateData,
-    createPagination,
-    resetPagination
-}
-from "../ui/pagination.js";
-
 let categoryArticles = [];
+let currentCategory = "general";
 
-let currentCategory =
-    "general";
+function initializeCategories() {
+    const buttons = document.querySelectorAll(".categories button");
 
-export function initializeCategories() {
+    // Set default active category button styling on load
+    updateActiveCategoryButton("general");
 
-    const buttons =
-        document.querySelectorAll(
-            ".categories button"
-        );
-
-    buttons.forEach(
-        button => {
-
-            button.addEventListener(
-                "click",
-                async () => {
-
-                    currentCategory =
-                        button.dataset
-                        .category;
-
-                    await loadCategory(
-                        currentCategory
-                    );
-
-                }
-            );
-
-        }
-    );
-
+    buttons.forEach(button => {
+        button.addEventListener("click", async () => {
+            currentCategory = button.dataset.category;
+            updateActiveCategoryButton(currentCategory);
+            await loadCategory(currentCategory);
+        });
+    });
 }
 
-export async function loadCategory(
-    category
-) {
+function updateActiveCategoryButton(category) {
+    const buttons = document.querySelectorAll(".categories button");
+    buttons.forEach(button => {
+        if (button.dataset.category === category) {
+            button.classList.add("active");
+        } else {
+            button.classList.remove("active");
+        }
+    });
+}
 
+async function loadCategory(category) {
     try {
-
         hideError();
-
         showSpinner();
-
         resetPagination();
 
-        const data =
-            await getTopNews(
-                category
-            );
-
-        categoryArticles =
-            data.articles || [];
-
+        const data = await getTopNews(category);
+        categoryArticles = data.articles || [];
         updateCategoryPage();
-
-    }
-
-    catch (error) {
-
-        showError(
-            error.message
-        );
-
-    }
-
-    finally {
-
+    } catch (error) {
+        showError(error.message);
+    } finally {
         hideSpinner();
-
     }
-
 }
 
 function updateCategoryPage() {
-
-    const pageData =
-        paginateData(
-            categoryArticles
-        );
-
+    const pageData = paginateData(categoryArticles);
     renderNews(pageData);
-
-    createPagination(
-        categoryArticles,
-        updateCategoryPage
-    );
-
+    createPagination(categoryArticles, updateCategoryPage);
 }
