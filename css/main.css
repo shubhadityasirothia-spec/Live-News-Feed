@@ -1,0 +1,179 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,sans-serif;
+}
+
+body{
+background:#050505;
+color:white;
+}
+
+.navbar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 40px;
+border-bottom:1px solid #222;
+position:sticky;
+top:0;
+background:#050505;
+z-index:100;
+}
+
+.logo{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.logo i{
+font-size:30px;
+color:#5b4dff;
+}
+
+.logo h2{
+color:#37a8ff;
+}
+
+.search-box{
+display:flex;
+}
+
+.search-box input{
+width:450px;
+padding:14px;
+background:#111;
+border:none;
+outline:none;
+color:white;
+border-radius:15px 0 0 15px;
+}
+
+.search-box button{
+padding:14px 20px;
+border:none;
+background:#5b4dff;
+color:white;
+border-radius:0 15px 15px 0;
+cursor:pointer;
+}
+
+.hero{
+height:350px;
+margin:30px;
+border-radius:25px;
+overflow:hidden;
+
+background:
+linear-gradient(
+rgba(0,0,0,.5),
+rgba(0,0,0,.7)
+),
+
+url('https://images.unsplash.com/photo-1504711434969-e33886168f5c')
+center/cover;
+}
+
+.hero-overlay{
+padding:60px;
+}
+
+.hero-tag{
+background:red;
+padding:8px 15px;
+border-radius:20px;
+}
+
+.hero h1{
+font-size:55px;
+max-width:700px;
+margin:20px 0;
+}
+
+.hero p{
+color:#ddd;
+margin-bottom:20px;
+}
+
+.hero button{
+padding:15px 30px;
+border:none;
+background:#5b4dff;
+color:white;
+border-radius:15px;
+cursor:pointer;
+}
+
+.categories{
+display:flex;
+gap:15px;
+padding:0 30px 30px;
+flex-wrap:wrap;
+}
+
+.categories button{
+padding:12px 24px;
+border-radius:25px;
+background:#101010;
+border:1px solid #222;
+color:white;
+cursor:pointer;
+}
+
+.categories button:hover{
+background:#5b4dff;
+}
+
+.container{
+display:grid;
+grid-template-columns:3fr 1fr;
+gap:25px;
+padding:30px;
+}
+
+.news-grid{
+display:grid;
+grid-template-columns:
+repeat(auto-fill,minmax(320px,1fr));
+gap:25px;
+}
+
+.sidebar{
+position:sticky;
+top:100px;
+height:fit-content;
+}
+
+.widget{
+background:#0d0d0d;
+border:1px solid #1d1d1d;
+border-radius:20px;
+padding:25px;
+margin-bottom:20px;
+}
+
+.widget ul{
+list-style:none;
+margin-top:20px;
+}
+
+.widget li{
+margin-bottom:15px;
+}
+
+.online{
+color:#00ff73;
+}
+
+.hidden{
+display:none;
+}
+
+footer{
+padding:30px;
+text-align:center;
+border-top:1px solid #222;
+margin-top:30px;
+}

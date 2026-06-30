@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <title>NewsPulse</title>
+
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/components.css">
+    <link rel="stylesheet" href="./css/responsive.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+
+            <i class="fa-solid fa-wave-square"></i>
+
+            <h2>NewsPulse</h2>
+
+        </div>
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="Search news articles...">
+
+            <button id="searchBtn">
+
+                <i class="fa-solid fa-search"></i>
+
+            </button>
+
+        </div>
+
+        <div class="nav-icons">
+
+            <i class="fa-regular fa-bell"></i>
+
+            <i class="fa-regular fa-user"></i>
+
+        </div>
+
+    </nav>
+
+    <section class="hero">
+
+        <div class="hero-overlay">
+
+            <span class="hero-tag">
+                Technology
+            </span>
+
+            <h1>
+                Stay Updated With The Latest Global News
+            </h1>
+
+            <p>
+                Real-time news aggregation powered by API integration.
+            </p>
+
+            <button id="exploreBtn">
+                Explore News
+            </button>
+
+        </div>
+
+    </section>
+
+    <section class="categories">
+
+        <button data-category="general">All</button>
+
+        <button data-category="technology">
+            Technology
+        </button>
+
+        <button data-category="business">
+            Business
+        </button>
+
+        <button data-category="sports">
+            Sports
+        </button>
+
+        <button data-category="entertainment">
+            Entertainment
+        </button>
+
+        <button data-category="health">
+            Health
+        </button>
+
+        <button data-category="science">
+            Science
+        </button>
+
+    </section>
+
+    <div
+        id="loader"
+        class="loader hidden">
+
+        Loading News...
+
+    </div>
+
+    <div
+        id="error"
+        class="error hidden">
+
+        <p id="errorText">
+            Failed to fetch news.
+        </p>
+
+        <button id="retryBtn">
+            Retry
+        </button>
+
+    </div>
+
+    <main class="container">
+
+        <section
+            id="newsGrid"
+            class="news-grid">
+
+        </section>
+
+        <aside class="sidebar">
+
+            <div class="widget">
+
+                <h3>
+                    Trending Topics
+                </h3>
+
+                <ul>
+
+                    <li>AI Revolution</li>
+
+                    <li>Climate Summit</li>
+
+                    <li>Space Exploration</li>
+
+                    <li>Quantum Computing</li>
+
+                    <li>Tech Innovation</li>
+
+                </ul>
+
+            </div>
+
+            <div class="widget">
+
+                <h3>
+                    API Status
+                </h3>
+
+                <p class="online">
+                    ● Online
+                </p>
+
+            </div>
+
+            <div class="widget">
+
+                <h3>
+                    Saved Articles
+                </h3>
+
+                <p id="bookmarkCount">
+                    0 Bookmarks
+                </p>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+    <div
+        id="pagination"
+        class="pagination">
+
+    </div>
+
+    <footer>
+
+        <p>
+            © 2026 NewsPulse
+        </p>
+
+    </footer>
+
+    <script
+        type="module"
+        src="./js/app.js">
+    </script>
+
+</body>
+
+</html>
