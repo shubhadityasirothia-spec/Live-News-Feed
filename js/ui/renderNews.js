@@ -76,16 +76,14 @@ function renderNews(articles) {
 
         `;
 
-        card
-            .querySelector(".read-btn")
-            .addEventListener("click", () => {
-
-                window.open(
-                    article.url,
-                    "_blank"
-                );
-
-            });
+        // Make the entire card clickable to open the article
+        card.addEventListener("click", (event) => {
+            // Prevent opening the link if the user is bookmarking
+            if (event.target.classList.contains("bookmark-btn")) {
+                return;
+            }
+            window.open(article.url, "_blank");
+        });
 
         card
             .querySelector(".bookmark-btn")
