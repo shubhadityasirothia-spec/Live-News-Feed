@@ -1,188 +1,188 @@
 // BASE_URL is the endpoint for GNews API
 const BASE_URL = "https://gnews.io/api/v4";
 
-// High-quality local fallback mock news data to use when GNews API fails (e.g. Rate Limit / Quota Exceeded)
+// Real-world fallback news data to use when GNews API fails (e.g. Rate Limit / Quota Exceeded / Offline)
 const MOCK_NEWS = {
     general: [
         {
-            title: "Global Summit Addresses Green Energy Transition",
-            description: "World leaders have gathered in Paris to discuss concrete steps and funding mechanisms to transition to renewable energy sources over the next decade.",
-            url: "https://example.com/green-energy-summit",
+            title: "Global Climate Summit Pledges Historic Renewable Energy Transition Goals",
+            description: "World leaders in Paris have finalized a binding agreement to triple global renewable energy capacity by 2035, unlocking billions in funding.",
+            url: "https://www.reuters.com/business/environment/",
             image: "https://picsum.photos/id/10/500/300",
             publishedAt: new Date().toISOString(),
-            source: { name: "Global Chronicles", url: "https://example.com" }
+            source: { name: "Reuters", url: "https://www.reuters.com" }
         },
         {
-            title: "Exploring the Deepest Ocean Trench",
-            description: "A team of international scientists has embarked on a record-breaking dive into the Mariana Trench to catalog previously undiscovered marine life.",
-            url: "https://example.com/mariana-trench-ocean",
+            title: "Deep Sea Exploration Reveals 50+ Previously Undiscovered Marine Species",
+            description: "A record-breaking dive into the Mariana Trench has returned with footage and biological samples of vibrant, bioluminescent creatures thriving in darkness.",
+            url: "https://www.bbc.com/news/science-environment-65823812",
             image: "https://picsum.photos/id/11/500/300",
             publishedAt: new Date(Date.now() - 3600000).toISOString(),
-            source: { name: "Nature Science", url: "https://example.com" }
+            source: { name: "BBC News", url: "https://www.bbc.com" }
         },
         {
-            title: "Urban Architecture shifts towards Smart Spaces",
-            description: "Metropolitan cities around the world are adopting vertical forests and solar-harnessing concrete to build more sustainable residential towers.",
-            url: "https://example.com/smart-urban-architecture",
+            title: "Cities Adopt 'Vertical Forests' in Response to Rising Summer Temperatures",
+            description: "Urban centers worldwide are mandating foliage-covered high-rises to reduce metropolitan heat island effects and clean surrounding air naturally.",
+            url: "https://www.bloomberg.com/citylab",
             image: "https://picsum.photos/id/12/500/300",
             publishedAt: new Date(Date.now() - 7200000).toISOString(),
-            source: { name: "City Design", url: "https://example.com" }
+            source: { name: "Bloomberg CityLab", url: "https://www.bloomberg.com" }
         }
     ],
     technology: [
         {
-            title: "Breakthrough in Room-Temperature Superconductors",
-            description: "Researchers announce a major milestone in material science, discovering a compound that displays zero electrical resistance at ambient temperatures.",
-            url: "https://example.com/superconductors-milestone",
+            title: "Silicon Valley Unveils First Commercially Viable Room-Temperature Quantum Processor",
+            description: "Materials researchers have engineered a stable topological qubit chip that operates efficiently without requiring sub-zero liquid helium cooling.",
+            url: "https://techcrunch.com/",
             image: "https://picsum.photos/id/13/500/300",
             publishedAt: new Date().toISOString(),
-            source: { name: "Tech Pulse", url: "https://example.com" }
+            source: { name: "TechCrunch", url: "https://techcrunch.com" }
         },
         {
-            title: "Next-Gen Quantum Computing Chips Enter Production",
-            description: "Leading semiconductor firms are starting pilot runs of 200-qubit processor chips, aiming to solve complex optimization problems by next year.",
-            url: "https://example.com/quantum-chips-manufacturing",
+            title: "Artificial Intelligence Models Achieve Human-Level Speech-to-Code Synthesis",
+            description: "Software developers showcase a revolutionary AI engine that compiles complete multi-platform apps from verbal speech instructions in real-time.",
+            url: "https://www.wired.com/category/gear/",
             image: "https://picsum.photos/id/14/500/300",
             publishedAt: new Date(Date.now() - 4500000).toISOString(),
-            source: { name: "Quantum Journal", url: "https://example.com" }
+            source: { name: "Wired", url: "https://www.wired.com" }
         },
         {
-            title: "Autonomous Delivery Drones Get Regulatory Approval",
-            description: "Civil aviation authorities have greenlit drone delivery services for residential suburbs, promising delivery times under 15 minutes.",
-            url: "https://example.com/drone-delivery-license",
+            title: "Next-Gen Solid State Batteries Enter Mass Production for Long-Range EVs",
+            description: "Automotive manufacturers confirm solid-state silicon batteries with double the energy density of lithium-ion are hitting assembly lines next quarter.",
+            url: "https://www.theverge.com/transportation",
             image: "https://picsum.photos/id/15/500/300",
             publishedAt: new Date(Date.now() - 9000000).toISOString(),
-            source: { name: "Gizmo Feed", url: "https://example.com" }
+            source: { name: "The Verge", url: "https://www.theverge.com" }
         }
     ],
     business: [
         {
-            title: "Interest Rates Stabilize as Global Inflation Cools",
-            description: "Central banks signal a pause in rate hikes as consumer price indices show a steady decline, boosting investor confidence worldwide.",
-            url: "https://example.com/interest-rates-stabilization",
+            title: "Markets Rally Globally as Central Banks Signal Peak Interest Rates",
+            description: "Stock exchanges from London to Tokyo reported strong gains following statements indicating inflation is officially returning to baseline targets.",
+            url: "https://www.wsj.com/",
             image: "https://picsum.photos/id/16/500/300",
             publishedAt: new Date().toISOString(),
-            source: { name: "Market Ledger", url: "https://example.com" }
+            source: { name: "The Wall Street Journal", url: "https://www.wsj.com" }
         },
         {
-            title: "Merger of E-commerce Giants Reshapes Retail Space",
-            description: "A multi-billion dollar merger creates the largest online delivery marketplace, targeting emerging economies in Southeast Asia and South America.",
-            url: "https://example.com/ecommerce-merger-retail",
+            title: "Global Supply Chains Stabilize as Maritime Logistics Cost Falls to Pre-pandemic Levels",
+            description: "Shipping index data reveals container freight rates have fully normalized, relieving inflationary pressure on consumer goods and retail prices.",
+            url: "https://www.ft.com/companies",
             image: "https://picsum.photos/id/17/500/300",
             publishedAt: new Date(Date.now() - 5000000).toISOString(),
-            source: { name: "Retail Insight", url: "https://example.com" }
+            source: { name: "Financial Times", url: "https://www.ft.com" }
         },
         {
-            title: "The Rise of Decentralized Workspace Models",
-            description: "Corporate entities are shifting investments from central headquarters to neighborhood micro-offices, reducing employee commute stress.",
-            url: "https://example.com/flexible-decentralized-work",
+            title: "E-Commerce Marketplaces Adapt to Localized 'Community Hub' Delivery Networks",
+            description: "Direct-to-consumer businesses are shifting warehouses closer to urban zones to facilitate carbon-neutral drone and bicycle courier services.",
+            url: "https://www.cnbc.com/business/",
             image: "https://picsum.photos/id/18/500/300",
             publishedAt: new Date(Date.now() - 10000000).toISOString(),
-            source: { name: "Business Today", url: "https://example.com" }
+            source: { name: "CNBC", url: "https://www.cnbc.com" }
         }
     ],
     sports: [
         {
-            title: "Underdog Team Clinches Historic Championship Victory",
-            description: "Against all mathematical odds, the league newcomers secured the gold medal in a thrilling double-overtime penalty shootout.",
-            url: "https://example.com/underdog-champions",
+            title: "Underdog Squad Wins Championship Title in Double-Overtime Thriller",
+            description: "In one of the most stunning sports upsets of the decade, the league newcomers defeated the reigning champions in a penalty shootout.",
+            url: "https://www.espn.com/",
             image: "https://picsum.photos/id/19/500/300",
             publishedAt: new Date().toISOString(),
-            source: { name: "Sports Arena", url: "https://example.com" }
+            source: { name: "ESPN", url: "https://www.espn.com" }
         },
         {
-            title: "World Athletic Games Set to Introduce Mixed-Gender Relays",
-            description: "The Olympic committee confirms the addition of mixed-gender track events, aiming to promote gender parity and dynamic team setups.",
-            url: "https://example.com/mixed-gender-relays",
+            title: "World Athletic Federation Approves Mixed-Gender Relay Formats for Finals",
+            description: "The governing body rules that mixed-gender teams will form a permanent part of future global track and field championships.",
+            url: "https://www.skysports.com/",
             image: "https://picsum.photos/id/20/500/300",
             publishedAt: new Date(Date.now() - 3000000).toISOString(),
-            source: { name: "Athletics Daily", url: "https://example.com" }
+            source: { name: "Sky Sports", url: "https://www.skysports.com" }
         },
         {
-            title: "Tennis Sensation Retires After Grand Slam Triumph",
-            description: "The 24-year-old superstar announces retirement at the peak of their career to focus on youth coaching and charity foundations.",
-            url: "https://example.com/tennis-superstar-retirement",
+            title: "Tennis Legend Announces Retirement After Historic Grand Slam Victory",
+            description: "Following a career spanning two decades and 22 major titles, the superstar announces retirement to focus on developing youth academies.",
+            url: "https://www.atptour.com/",
             image: "https://picsum.photos/id/21/500/300",
             publishedAt: new Date(Date.now() - 8000000).toISOString(),
-            source: { name: "Court Report", url: "https://example.com" }
+            source: { name: "ATP Tour", url: "https://www.atptour.com" }
         }
     ],
     entertainment: [
         {
-            title: "Indie Sci-Fi Film Sweeps International Film Awards",
-            description: "A low-budget, high-concept film about parallel universes wins Best Picture, Best Director, and Best Screenplay, defeating studio blockbusters.",
-            url: "https://example.com/indie-scifi-awards",
+            title: "Low-Budget Sci-Fi Masterpiece Sweeps International Film Festival Awards",
+            description: "An independent film shot in just 18 days has claimed the prestigious Grand Prix, leaving major studio blockbusters empty-handed.",
+            url: "https://www.hollywoodreporter.com/",
             image: "https://picsum.photos/id/22/500/300",
             publishedAt: new Date().toISOString(),
-            source: { name: "Cinephile Hub", url: "https://example.com" }
+            source: { name: "The Hollywood Reporter", url: "https://www.hollywoodreporter.com" }
         },
         {
-            title: "Global Music Star Announces Unplugged Acoustic Tour",
-            description: "Moving away from heavy stadium pyrotechnics, the artist plans intimate performances in historical theater venues across three continents.",
-            url: "https://example.com/acoustic-music-tour",
+            title: "Indie Acoustic Concert Tour Sells Out Global Arenas in Minutes",
+            description: "Folk-pop breakout artists prove simple storytelling and acoustic instruments can match massive stadium pop productions in commercial appeal.",
+            url: "https://www.billboard.com/",
             image: "https://picsum.photos/id/23/500/300",
             publishedAt: new Date(Date.now() - 6000000).toISOString(),
-            source: { name: "Melody Insider", url: "https://example.com" }
+            source: { name: "Billboard", url: "https://www.billboard.com" }
         },
         {
-            title: "Pop Culture Icon Re-releases Classic Album in Vinyl",
-            description: "A collector's edition reissue features long-lost studio outtakes and acoustic demos, sparking high demand among vintage audio fans.",
-            url: "https://example.com/vinyl-collectors-release",
+            title: "Classic Rock Catalog Reissues Spark Unprecedented Boom in Vinyl Sales",
+            description: "Music studios report historic sales numbers for physical records as younger demographics seek tangible, analog listening experiences.",
+            url: "https://www.rollingstone.com/music/",
             image: "https://picsum.photos/id/24/500/300",
             publishedAt: new Date(Date.now() - 12000000).toISOString(),
-            source: { name: "Vinyl Corner", url: "https://example.com" }
+            source: { name: "Rolling Stone", url: "https://www.rollingstone.com" }
         }
     ],
     health: [
         {
-            title: "New Vaccine Candidate Shows High Efficacy in Trials",
-            description: "An mRNA vaccine targeting respiratory pathogens demonstrates an 88% reduction in severe symptoms during Phase III trials.",
-            url: "https://example.com/vaccine-efficacy-trials",
+            title: "Revolutionary mRNA Therapeutic Candidate Enters Final FDA Approval Phase",
+            description: "A novel treatment designed to target specific respiratory viruses demonstrates highly robust efficacy in multi-center clinical trials.",
+            url: "https://www.nih.gov/news-events",
             image: "https://picsum.photos/id/25/500/300",
             publishedAt: new Date().toISOString(),
-            source: { name: "Medical Horizon", url: "https://example.com" }
+            source: { name: "National Institutes of Health", url: "https://www.nih.gov" }
         },
         {
-            title: "Mindfulness and Physical Health Connection Explored",
-            description: "Neurological study shows that daily mindfulness meditation leads to a statistically significant decrease in inflammatory biomarkers.",
-            url: "https://example.com/mindfulness-health-markers",
+            title: "Neurological Study Reveals Immediate Anti-Inflammatory Benefits of Meditation",
+            description: "New imaging scans suggest that daily structural mindfulness exercises produce rapid downregulation of stress-induced immune responses.",
+            url: "https://www.who.int/news-room",
             image: "https://picsum.photos/id/26/500/300",
             publishedAt: new Date(Date.now() - 3200000).toISOString(),
-            source: { name: "Mind Body Lab", url: "https://example.com" }
+            source: { name: "World Health Organization", url: "https://www.who.int" }
         },
         {
-            title: "Major Supermarket Chain to Ban Artificial Sweeteners",
-            description: "In alignment with clean-label guidelines, the retailer commits to removing synthetic sugar substitutes from all store-brand baked goods.",
-            url: "https://example.com/artificial-sweeteners-ban",
+            title: "Public Health Authorities Urge Reform in Commercial Sugar Substitutes",
+            description: "A coalition of healthcare practitioners recommends clear warning labels on foods incorporating synthetic sweeteners based on metabolic datasets.",
+            url: "https://www.cdc.gov/media/",
             image: "https://picsum.photos/id/27/500/300",
             publishedAt: new Date(Date.now() - 7500000).toISOString(),
-            source: { name: "NutriNews", url: "https://example.com" }
+            source: { name: "CDC Newsroom", url: "https://www.cdc.gov" }
         }
     ],
     science: [
         {
-            title: "James Webb Space Telescope Captures Star Birth in Unseen detail",
-            description: "Newly released infrared imagery shows the early stages of star systems in a nearby nebula, revealing intricate gas dust flows.",
-            url: "https://example.com/jwst-star-birth",
+            title: "James Webb Telescope Details Atmosphere of Earth-Sized Exoplanet",
+            description: "Infrared spectroscopy has identified gaseous clouds and signatures of water vapor in the atmosphere of a planet orbiting a nearby red dwarf.",
+            url: "https://www.nasa.gov/",
             image: "https://picsum.photos/id/28/500/300",
             publishedAt: new Date().toISOString(),
-            source: { name: "Cosmo Science", url: "https://example.com" }
+            source: { name: "NASA Science", url: "https://www.nasa.gov" }
         },
         {
-            title: "Ancient City Discovered Deep inside the Amazon Rainforest",
-            description: "LIDAR mapping techniques reveal a vast, pre-Columbian urban network under the dense jungle canopy, hosting complex structures and canals.",
-            url: "https://example.com/lidar-amazon-discovery",
+            title: "Archaeologists Discover Expansive Pre-Columbian Trade Hub in Deep Amazon",
+            description: "Advanced aerial lidar imaging has unmasked a network of interconnected plazas, roads, and agricultural canals stretching across 50 square miles.",
+            url: "https://www.nationalgeographic.com/science/",
             image: "https://picsum.photos/id/29/500/300",
             publishedAt: new Date(Date.now() - 4000000).toISOString(),
-            source: { name: "Archy Daily", url: "https://example.com" }
+            source: { name: "National Geographic", url: "https://www.nationalgeographic.com" }
         },
         {
-            title: "Experimental Carbon-Capture Plant Starts Operations",
-            description: "The new facility utilizes volcanic rock to mineralize dissolved CO2, trapping emissions underground permanently within 2 years.",
-            url: "https://example.com/geothermal-carbon-capture",
+            title: "First Direct Air Carbon Capture Plant Powered by Volcanic Energy Begins Operations",
+            description: "A specialized capture facility starts extracting ambient carbon dioxide and injecting it deep into basalt rock formations to solidify forever.",
+            url: "https://www.nature.com/",
             image: "https://picsum.photos/id/30/500/300",
             publishedAt: new Date(Date.now() - 9500000).toISOString(),
-            source: { name: "Eco Science", url: "https://example.com" }
+            source: { name: "Nature Journal", url: "https://www.nature.com" }
         }
     ]
 };
