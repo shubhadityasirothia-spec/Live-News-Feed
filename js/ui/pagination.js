@@ -2,7 +2,7 @@ let currentPage = 1;
 
 const articlesPerPage = 9;
 
-export function paginateData(data) {
+function paginateData(data) {
 
     const start =
         (currentPage - 1) * articlesPerPage;
@@ -14,7 +14,7 @@ export function paginateData(data) {
 
 }
 
-export function createPagination(
+function createPagination(
     articles,
     callback
 ) {
@@ -70,13 +70,13 @@ export function createPagination(
 
 }
 
-export function resetPagination() {
+function resetPagination() {
 
     currentPage = 1;
 
 }
 
-export function getCurrentPage() {
+function getCurrentPage() {
 
     return currentPage;
 
