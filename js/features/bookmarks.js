@@ -1,15 +1,11 @@
-import {
-    saveBookmarks,
-    getBookmarks
-}
-from "../storage/localStorage.js";
+// Imports removed for global scripting
 
 let bookmarks =
     getBookmarks();
 
 updateBookmarkCounter();
 
-export function addBookmark(
+function addBookmark(
     article
 ) {
 
@@ -18,7 +14,7 @@ export function addBookmark(
             item =>
                 item.url ===
                 article.url
-        );
+            );
 
     if (exists) {
 
@@ -44,7 +40,7 @@ export function addBookmark(
 
 }
 
-export function removeBookmark(
+function removeBookmark(
     url
 ) {
 
@@ -63,7 +59,7 @@ export function removeBookmark(
 
 }
 
-export function getAllBookmarks() {
+function getAllBookmarks() {
 
     return bookmarks;
 
@@ -83,7 +79,7 @@ function updateBookmarkCounter() {
 
 }
 
-export function initializeBookmarks() {
+function initializeBookmarks() {
 
     updateBookmarkCounter();
 
