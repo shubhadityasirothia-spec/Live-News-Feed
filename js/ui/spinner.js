@@ -1,12 +1,12 @@
 const loader = document.getElementById("loader");
 
-export function showSpinner() {
+function showSpinner() {
 
     loader.classList.remove("hidden");
 
 }
 
-export function hideSpinner() {
+function hideSpinner() {
 
     loader.classList.add("hidden");
 
