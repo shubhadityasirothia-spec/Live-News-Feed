@@ -1,4 +1,4 @@
-export function formatDate(dateString) {
+function formatDate(dateString) {
 
     return new Date(
         dateString
@@ -6,7 +6,7 @@ export function formatDate(dateString) {
 
 }
 
-export function truncateText(
+function truncateText(
     text,
     length = 120
 ) {
@@ -30,7 +30,7 @@ export function truncateText(
 
 }
 
-export function debounce(
+function debounce(
     func,
     delay = 500
 ) {
