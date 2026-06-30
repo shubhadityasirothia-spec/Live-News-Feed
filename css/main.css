@@ -126,6 +126,11 @@ cursor:pointer;
 background:#5b4dff;
 }
 
+.categories button.active{
+background:#5b4dff;
+border-color:#5b4dff;
+}
+
 .container{
 display:grid;
 grid-template-columns:3fr 1fr;
