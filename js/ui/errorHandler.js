@@ -2,7 +2,7 @@ const errorBox = document.getElementById("error");
 
 const errorText = document.getElementById("errorText");
 
-export function showError(message) {
+function showError(message) {
 
     errorText.textContent = message;
 
@@ -10,13 +10,13 @@ export function showError(message) {
 
 }
 
-export function hideError() {
+function hideError() {
 
     errorBox.classList.add("hidden");
 
 }
 
-export function attachRetry(callback) {
+function attachRetry(callback) {
 
     const retryBtn =
         document.getElementById("retryBtn");
