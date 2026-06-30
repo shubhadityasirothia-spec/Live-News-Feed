@@ -1,11 +1,8 @@
-import {
-    addBookmark
-}
-from "../features/bookmarks.js";
+// Imports removed for global scripting
 
 const newsGrid = document.getElementById("newsGrid");
 
-export function renderNews(articles) {
+function renderNews(articles) {
 
     newsGrid.innerHTML = "";
 
