@@ -1,6 +1,6 @@
 const STORAGE_KEY = "newspulse_bookmarks";
 
-export function saveBookmarks(bookmarks) {
+function saveBookmarks(bookmarks) {
 
     try {
 
@@ -22,7 +22,7 @@ export function saveBookmarks(bookmarks) {
 
 }
 
-export function getBookmarks() {
+function getBookmarks() {
 
     try {
 
@@ -50,7 +50,7 @@ export function getBookmarks() {
 
 }
 
-export function clearBookmarks() {
+function clearBookmarks() {
 
     localStorage.removeItem(
         STORAGE_KEY
